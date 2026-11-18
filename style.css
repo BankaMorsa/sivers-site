@@ -1,0 +1,567 @@
+/* ==========================================
+   Переменные и базовые настройки
+   ========================================== */
+:root{
+  --bg:#0f1923;
+  --panel:#182635;
+  --panel-2:#1f3244;
+  --gold:#c9a227;
+  --gold-light:#e6c65a;
+  --text:#e8eef4;
+  --text-dim:#a9b8c7;
+  --border:#2c4258;
+  --shadow:0 8px 28px rgba(0,0,0,.45);
+  --radius:14px;
+}
+
+*{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+
+  background: transparent !important; 
+
+  color:var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height:1.6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.wrap{
+  width:100%;
+  max-width:860px;
+  margin:0 auto;
+  padding:0 16px;
+}
+
+/* ==========================================
+   HERO
+   ========================================== */
+header.hero{
+  padding: clamp(28px, 7vw, 56px) 0 clamp(18px, 4vw, 28px);
+  text-align:center;
+}
+
+.hero__eyebrow{
+  display:inline-block;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  border:1px solid rgba(201,162,39,.45);
+  border-radius:999px;
+  padding:5px 14px;
+  margin-bottom:16px;
+  background:rgba(201,162,39,.07);
+}
+
+h1{
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight:700;
+  font-size: clamp(1.5rem, 6.2vw, 2.6rem);
+  line-height:1.15;
+  margin:0 0 8px;
+  letter-spacing:.01em;
+}
+
+h1 span{ color:var(--gold-light); }
+
+.hero__dates{
+  color:var(--text-dim);
+  font-size: clamp(.9rem, 3.6vw, 1.05rem);
+  margin:0;
+}
+
+.divider{
+  width:64px; height:2px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin:20px auto 0;
+  border:0;
+}
+
+/* ==========================================
+   VIDEO
+   ========================================== */
+.video-block{
+  margin: clamp(20px, 5vw, 34px) 0;
+}
+
+.video-slot{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:var(--radius);
+  border:2px dashed rgba(201,162,39,.55);
+  background:
+    linear-gradient(145deg, rgba(31,50,68,.9), rgba(15,25,35,.95));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.video-slot__play{
+  width:64px; height:64px;
+  border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(201,162,39,.12);
+}
+.video-slot__play::after{
+  content:"";
+  display:block;
+  width:0; height:0;
+  border-left:18px solid var(--gold-light);
+  border-top:11px solid transparent;
+  border-bottom:11px solid transparent;
+  margin-left:5px;
+}
+
+.video-slot__label{
+  font-size:.82rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  text-align:center;
+  padding:0 16px;
+}
+
+.video-slot__hint{
+  font-size:.75rem;
+  color:var(--text-dim);
+  text-align:center;
+  padding:0 16px;
+}
+
+/* ==========================================
+   INTRO
+   ========================================== */
+.intro{
+  background:linear-gradient(160deg, var(--panel), var(--panel-2));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding: clamp(18px, 4.5vw, 28px);
+  margin: clamp(18px, 4vw, 28px) 0;
+  box-shadow:var(--shadow);
+}
+
+.intro h2{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 4.4vw, 1.4rem);
+  margin:0 0 12px;
+  color:var(--gold-light);
+}
+
+.intro p{
+  margin:0 0 10px;
+  color:var(--text);
+  font-size: clamp(.94rem, 3.8vw, 1.02rem);
+}
+.intro p:last-child{ margin-bottom:0; }
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+.buttons-block{
+  margin: clamp(22px, 5vw, 34px) 0 clamp(26px, 6vw, 40px);
+}
+
+.buttons-title{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 4.4vw, 1.35rem);
+  text-align:center;
+  color:var(--text);
+  margin:0 0 6px;
+}
+
+.buttons-sub{
+  text-align:center;
+  color:var(--text-dim);
+  font-size:.82rem;
+  margin:0 0 20px;
+}
+
+.btn-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+@media (min-width:560px){
+  .btn-grid{ grid-template-columns:repeat(3, 1fr); }
+}
+
+.btn{
+  -webkit-appearance:none;
+  appearance:none;
+  width:100%;
+  min-height:64px;
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font: inherit;
+  font-size: clamp(.98rem, 4vw, 1.05rem);
+  font-weight:600;
+  letter-spacing:.01em;
+  color:var(--text);
+  text-align:left;
+  background:linear-gradient(160deg, var(--panel-2), var(--panel));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+  transition: transform .15s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.btn:hover{ border-color:var(--gold); box-shadow:0 6px 20px rgba(201,162,39,.18); }
+.btn:active{ transform:scale(.98); }
+.btn:focus-visible{ outline:2px solid var(--gold-light); outline-offset:3px; }
+
+.btn__icon{
+  flex:0 0 auto;
+  width:34px; height:34px;
+  border-radius:50%;
+  background:rgba(201,162,39,.14);
+  border:1px solid rgba(201,162,39,.45);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold-light);
+  font-size:1.05rem;
+  font-weight:700;
+}
+
+.btn__text{ flex:1 1 auto; }
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer{
+  border-top:1px solid var(--border);
+  padding:22px 0 34px;
+  text-align:center;
+  color:var(--text-dim);
+  font-size:.8rem;
+}
+
+/* ==========================================
+   MODAL
+   ========================================== */
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:1000;
+}
+.modal.is-open{ display:block; }
+
+.modal__backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(5,10,16,.78);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modal__dialog{
+  position:absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:860px;
+  max-height:88vh;
+  max-height:88dvh;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(180deg, var(--panel-2), var(--panel));
+  border:1px solid var(--border);
+  border-bottom:0;
+  border-radius:18px 18px 0 0;
+  box-shadow:0 -10px 40px rgba(0,0,0,.6);
+  animation: slideUp .28s cubic-bezier(.2,.8,.25,1);
+  overflow:hidden;
+}
+
+@keyframes slideUp{
+  from{ transform:translate(-50%, 100%); }
+  to{ transform:translate(-50%, 0); }
+}
+
+@media (min-width:720px){
+  .modal__dialog{
+    top:50%;
+    bottom:auto;
+    transform:translate(-50%, -50%);
+    border-radius:18px;
+    border-bottom:1px solid var(--border);
+    max-height:82vh;
+    animation: fadeIn .22s ease;
+  }
+  @keyframes fadeIn{
+    from{ opacity:0; transform:translate(-50%,-46%); }
+    to{ opacity:1; transform:translate(-50%,-50%); }
+  }
+}
+
+.modal__header{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+  background:rgba(15,25,35,.55);
+}
+
+.modal__title{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 4.2vw, 1.3rem);
+  color:var(--gold-light);
+  margin:0;
+}
+
+.modal__close{
+  -webkit-appearance:none;
+  appearance:none;
+  flex:0 0 auto;
+  width:40px; height:40px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  font-size:1.3rem;
+  line-height:1;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  transition:background .2s ease, border-color .2s ease;
+}
+.modal__close:hover{ background:rgba(201,162,39,.15); border-color:var(--gold); }
+.modal__close:active{ transform:scale(.95); }
+
+.modal__body{
+  flex:1 1 auto;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:18px 18px 26px;
+  overscroll-behavior: contain;
+}
+
+/* Контент внутри модального окна */
+.modal__body h3{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 4vw, 1.15rem);
+  color:var(--gold-light);
+  margin:22px 0 8px;
+  padding-bottom:6px;
+  border-bottom:1px solid rgba(201,162,39,.25);
+}
+.modal__body h3:first-child{ margin-top:0; }
+
+.modal__body h4{
+  font-size:.98rem;
+  color:var(--text);
+  margin:16px 0 6px;
+}
+
+.modal__body p{
+  margin:0 0 10px;
+  color:var(--text);
+  font-size: clamp(.92rem, 3.7vw, 1rem);
+}
+
+.modal__body ul{
+  margin:0 0 12px;
+  padding-left:20px;
+}
+.modal__body li{
+  margin-bottom:6px;
+  color:var(--text);
+  font-size: clamp(.92rem, 3.7vw, 1rem);
+}
+
+.modal__body .meta{
+  display:inline-block;
+  font-size:.78rem;
+  color:var(--gold-light);
+  background:rgba(201,162,39,.1);
+  border:1px solid rgba(201,162,39,.3);
+  border-radius:999px;
+  padding:3px 10px;
+  margin:2px 0 10px;
+}
+
+.modal__body a{
+  color:var(--gold-light);
+  word-break:break-word;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+
+.modal__body blockquote{
+  margin:12px 0;
+  padding:10px 14px;
+  border-left:3px solid var(--gold);
+  background:rgba(201,162,39,.07);
+  border-radius:0 8px 8px 0;
+  color:var(--text);
+  font-style:italic;
+  font-size: clamp(.9rem, 3.6vw, .98rem);
+}
+
+.modal__body .city{
+  margin-bottom:22px;
+}
+.modal__body .city:last-child{ margin-bottom:0; }
+
+.modal__body .city-name{
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+  color:var(--gold-light);
+  margin:0 0 4px;
+}
+
+.modal__body .src{
+  font-size:.8rem;
+  color:var(--text-dim);
+  margin-top:6px;
+}
+
+/* Блокировка прокрутки body при открытом модальном окне */
+body.modal-open{ overflow:hidden; }
+
+/* Уважение к настройкам уменьшенной анимации */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
+  html{ scroll-behavior:auto; }
+}
+
+/* ==========================================
+   НОВЫЕ СТИЛИ ДЛЯ ФОТОГРАФИЙ
+   ========================================== */
+
+/* Одиночное фото города */
+.city-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 14px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+/* Сетка для двух фото (старая/новая) */
+.img-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+@media (min-width: 500px) {
+  .img-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.img-grid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+/* Блок с фото в биографии (портрет + герб) */
+.bio-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.bio-images .portrait-img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.bio-images .coat-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border: 1px solid var(--border);
+}
+
+
+.bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  
+  background-image: url('сиверс2.jpg'); 
+  background-size: cover;       
+  
+  /* Сдвигаем картинку: по горизонтали (X) на 75% вправо, по вертикали (Y) на 15% вниз */
+  background-position: 75% 15%; 
+  
+  background-attachment: fixed; 
+  
+  /* Легкое размытие и затемнение */
+  filter: blur(4px) brightness(0.4); 
+  
+  /* Увеличение, чтобы размытые края не давали белых полос */
+  transform: scale(1.05); 
+}
+/* Стили для выделенной цитаты в биографии */
+.intro blockquote {
+  margin: 20px 0 0 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--gold);
+  background: rgba(201, 162, 39, 0.1);
+  border-radius: 0 8px 8px 0;
+  font-size: clamp(1rem, 4vw, 1.1rem);
+  color: var(--text);
+  font-style: italic;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.intro blockquote br {
+  display: none; /* Убирает лишний перенос, если он не нужен */
+}
+
+.intro blockquote::after {
+  content: "Екатерина II";
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  font-style: normal;
+  font-weight: bold;
+}
